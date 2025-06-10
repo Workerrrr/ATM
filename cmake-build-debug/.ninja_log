@@ -1,0 +1,7 @@
+# ninja log v6
+8	1505	7711688961908316	CMakeFiles/CLion_Project.dir/main.c.obj	fff3eed926dde655
+24	1496	7711683729640759	CMakeFiles/CLion_Project.dir/check.c.obj	60d528313a21b459
+1505	1690	7711688976877275	CLion_Project.exe	b50b440a69b22455
+3	310	7711861278195634	build.ninja	46b7393d7d16f6fd
+115	248	7528283598335244	main.exe	ae4ca34c5a073340
+19	662	7711688962008961	CMakeFiles/CLion_Project.dir/balance.c.obj	aadf00ee9d72281a
