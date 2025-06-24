@@ -4,8 +4,8 @@
 #include"atm_head.h"
 
 int withdraw(double withdraw_balance, int deposit) { // withdraw完成取款和存款两个功能
-    FILE *fp = fopen("G:\\ATM_Project\\account.txt", "r");
-    FILE *tmp = fopen("G:\\ATM_Project\\temp.txt", "w");
+    FILE *fp = fopen(ACCOUNT_PATH, "r");
+    FILE *tmp = fopen(TEMP_PATH, "w");
 
     if (fp == NULL || tmp == NULL) {
         g_print("Error open file\n");
@@ -32,16 +32,16 @@ int withdraw(double withdraw_balance, int deposit) { // withdraw完成取款和�
     fclose(fp);
     fclose(tmp);
 
-    remove("G:\\ATM_Project\\account.txt");
-    rename("G:\\ATM_Project\\temp.txt", "G:\\ATM_Project\\account.txt");
+    remove(ACCOUNT_PATH);
+    rename(TEMP_PATH, ACCOUNT_PATH);
 
     return 1;   // 操作成功
 }
 
 
 int transfer_func(int transfer_account, double transfer_balance) {
-    FILE *fp = fopen("G:\\ATM_Project\\account.txt", "r");
-    FILE *tmp = fopen("G:\\ATM_Project\\temp.txt", "w");
+    FILE *fp = fopen(ACCOUNT_PATH, "r");
+    FILE *tmp = fopen(TEMP_PATH, "w");
 
     if (fp == NULL || tmp == NULL) {
         g_print("Error open file\n");
@@ -67,8 +67,8 @@ int transfer_func(int transfer_account, double transfer_balance) {
     fclose(fp);
     fclose(tmp);
 
-    remove("G:\\ATM_Project\\account.txt");
-    rename("G:\\ATM_Project\\temp.txt", "G:\\ATM_Project\\account.txt");
+    remove(ACCOUNT_PATH);
+    rename(TEMP_PATH, ACCOUNT_PATH);
 
     return 1;   // 操作成功
 }

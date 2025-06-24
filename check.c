@@ -12,7 +12,7 @@ int login_counter = 0;
 
 
 int account_check(const gchar *text) {
-    FILE *fp = fopen("G:\\ATM_Project\\account.txt", "r");
+    FILE *fp = fopen(ACCOUNT_PATH, "r");
     if (fp == NULL) {
         fclose(fp);
         return 0;   // 文件打开失败
@@ -65,7 +65,7 @@ int account_create_check(const gchar *name, const gchar *password, const gchar *
     }
 
 
-    FILE *fp = fopen("G:\\ATM_Project\\account.txt", "r");
+    FILE *fp = fopen(ACCOUNT_PATH, "r");
     if (fp == NULL) {
         g_print("Error open file\n");
         fclose(fp);
@@ -90,7 +90,7 @@ int account_create_check(const gchar *name, const gchar *password, const gchar *
     }
 
 
-    fp = fopen("G:\\ATM_Project\\account.txt", "a");  // 以追加方式打开文件
+    fp = fopen(ACCOUNT_PATH, "a");  // 以追加方式打开文件
     if (fp == NULL) {
         g_print("Error open file\n");
         fclose(fp);
@@ -151,8 +151,8 @@ int change_password_check(const gchar *old_password, const gchar *new_password, 
         return 7;   // 密码长度不足
     }
 
-    FILE *fp = fopen("G:\\ATM_Project\\account.txt", "r");
-    FILE *tmp = fopen("G:\\ATM_Project\\temp.txt", "w");
+    FILE *fp = fopen(ACCOUNT_PATH, "r");
+    FILE *tmp = fopen(TEMP_PATH, "w");
 
     if (fp == NULL || tmp == NULL) {
         g_print("Error open file\n");
@@ -176,21 +176,22 @@ int change_password_check(const gchar *old_password, const gchar *new_password, 
     fclose(fp);
     fclose(tmp);
 
-    remove("G:\\ATM_Project\\account.txt");
-    rename("G:\\ATM_Project\\temp.txt", "G:\\ATM_Project\\account.txt");
+    remove(ACCOUNT_PATH);
+    rename(TEMP_PATH, ACCOUNT_PATH);
 
     return 1;   // 密码更改成功
 }
 
 
 Account* get_transfer_name(int transfer_account) {
-    FILE *fp = fopen("G:\\ATM_Project\\account.txt", "r");
+    FILE *fp = fopen(ACCOUNT_PATH, "r");
     if (fp == NULL) {
         fclose(fp);
         return NULL;   // 文件打开失败
     }
 
     Account* temp = malloc(sizeof(Account));
+
     if (temp == NULL) {
         fclose(fp);
         return NULL;

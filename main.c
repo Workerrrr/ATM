@@ -18,7 +18,7 @@ typedef void (*window_init_func)(GtkBuilder *builder);
 
 // 使用全局窗口指针
 
-// 登录界面
+// 登录界面窗口指针
 typedef struct {
     GtkWidget *account_check_window;
     GtkWidget *account_create_window;
@@ -29,7 +29,7 @@ typedef struct {
 LoginWindow login_windows;
 
 
-// 系统主界面
+// 系统主界面窗口指针
 typedef struct {
     GtkWidget *menu_window;
     GtkWidget *deposit_window;
@@ -44,14 +44,14 @@ typedef struct {
 MainWindow main_windows;
 
 
-// 用户数据
+// 用户数据结构体变量
 Account account;
 
 
 // 初始化所有登录界面窗口
 void init_login_window(GtkBuilder *builder) {
     // 读取Glade文件
-    gtk_builder_add_from_file(builder, "C:\\Users\\Worker\\Desktop\\Glade Project\\login_window.glade", 0);
+    gtk_builder_add_from_file(builder, LOGIN_GLADE, 0);
 
     // 初始化窗口指针
     login_windows.account_check_window = GTK_WIDGET(gtk_builder_get_object(builder, "account_check_window"));
@@ -327,7 +327,7 @@ void password_check_button_clicked(GtkButton *button, gpointer data) {
 
 // 初始化主界面窗口
 void init_main_window(GtkBuilder *builder) {
-    gtk_builder_add_from_file(builder, "C:\\Users\\Worker\\Desktop\\Glade Project\\main_window.glade", 0);
+    gtk_builder_add_from_file(builder, MAIN_GLADE, 0);
 
     // 初始化窗口指针
     main_windows.menu_window = GTK_WIDGET(gtk_builder_get_object(builder, "menu_window"));

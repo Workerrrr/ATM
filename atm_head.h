@@ -4,6 +4,12 @@
 #define PASSWORD_LEN 6
 #define NAME_LEN 20
 
+#define LOGIN_GLADE "C:\\Users\\Worker\\Desktop\\Glade Project\\login_window.glade"
+#define MAIN_GLADE "C:\\Users\\Worker\\Desktop\\Glade Project\\main_window.glade"
+#define ACCOUNT_PATH "G:\\ATM_Project\\account.txt"
+#define TEMP_PATH "G:\\ATM_Project\\temp.txt"
+
+
 // Global
 typedef struct {
     int account;
